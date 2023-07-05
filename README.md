@@ -42,7 +42,7 @@
      1、techsun-web-tracker.js 放入本地项目某目录下(例如：lib)
      import // require
 
-  2、<script src="lib/techsun-web-tracker.js"></script> （在初始化前引入）
+     2、<script src="lib/techsun-web-tracker.js"></script> （在初始化前引入）
 
 
   ```
@@ -51,16 +51,16 @@
 
   ```
    techsunTracker.init({
-        server_url: 'http://dev-cdp-02:50000',  //上报地址
+        server_url: 'https://scrmq.asus.com.cn/scrm/member/v1/buryingPoint/api/buryingPointEventSyncFE',  //测试环境上报地址，生产环境由CRM另外提供
         project: 'asus-cn',  // 固定
         channel: "", //从浏览器URL参数获取或者手动配置 见埋点文档渠道
         historyTracker: true, // 默认false, history模式 与hash 二选一
         hashTracker： fase, // 默认false,  hash模式，与history 二选一
-        event_mark: '001',  // 选填 区分渠道
+        event_mark: '001',  // 选填 区分渠道，由CRM提供
         parameter: {}, // 选填 拓展参数
   })
   ```
-> 上述代码建议进行混淆处理
+  > 上述代码建议进行混淆处理
 
 - 更新用户
 
@@ -88,7 +88,7 @@
 
   ```
      //SDK 初始化后, 收集页面事件
-  techsunTracker.track(
+     techsunTracker.track(
       "100000034",
       {
         //如果有需要属性，则在此添加  todo...
@@ -110,7 +110,7 @@
     从仓库中下载代码按照对应模式引入
 
     引入techsun-wx-tracker.js 放入本地项目某目录下(例如：lib)
-  import techsunWxTrack from ".xx/techsun-wx-tracker";
+    import techsunWxTrack from ".xx/techsun-wx-tracker";
   ```
 
 初始化
@@ -119,11 +119,11 @@
 
 ```
  techsunWxTrack.init({
-  server_url: 'http://dev-cdp-02:50000',  //上报地址
+  server_url: 'https://scrmq.asus.com.cn/scrm/member/v1/buryingPoint/api/buryingPointEventSyncFE',  //测试环境上报地址，生产环境由CRM另外提供
   project: 'asus-cn',  // 固定
   channel: "", // 从跳转的参数中获取或者手动配置 见埋点文档渠道
   autoTrack: true, // 默认为true,开启自动检测页面浏览时长和浏览记录以及UV
-  event_mark: '001',  // 选填 区分渠道
+  event_mark: '001',  // 选填 区分渠道，由CRM提供
   parameter: {}, // 选填 拓展参数
 })
 ```
@@ -156,9 +156,10 @@
 
   ```
      //SDK 初始化后, 收集页面事件
-        TechsunWxTrack.track(
-          "100000000",
-        {
-          //..todo
-        })
+     TechsunWxTrack.track(
+       "100000000",
+       {
+         //..todo
+       }
+     )
   ```
