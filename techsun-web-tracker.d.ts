@@ -19,11 +19,16 @@ interface DefaultOptons {
     customer_id: string;
     member_id: string;
     channel: string;
-    detail_id: string;
-    event_id: string;
+    detail_id: string | undefined;
+    event_id: string | undefined;
     event_type: string;
     event_mark: string;
     parameter: object | undefined;
+    _duration: {
+        startTime: string | number | undefined;
+        lastTime: string | number | undefined;
+        value: number;
+    };
 }
 interface initOptions extends Partial<DefaultOptons> {
     server_url: string;
@@ -49,12 +54,16 @@ declare class TechsunTracker {
     private initPageUv;
     private pagePv;
     setPagePVData(data: any): void;
-    track(source: string, exact: object): void;
+    track(source: string, event_mark: string, exact: object): void;
     private captureEvents;
     private report;
     private formatParams;
     private signature;
     private flush;
+    private initDuration;
+    private stopDuration;
+    private resetDuration;
+    private getDuration;
 }
 declare const _default: TechsunTracker;
 
