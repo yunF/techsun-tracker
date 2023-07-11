@@ -60,10 +60,6 @@ declare class TechsunTracker {
     private formatParams;
     private signature;
     private flush;
-    private initDuration;
-    private stopDuration;
-    private resetDuration;
-    private getDuration;
 }
 declare const _default: TechsunTracker;
 
